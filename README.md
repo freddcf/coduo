@@ -6,7 +6,7 @@
 - Todos os assets (Cadu, nome, design) são originais
 - Código licenciado sob MIT — sinta-se à vontade para estudar, fork ou usar como inspiração
 
-# Tecnologias utilizadas até o momento:
+## Tecnologias utilizadas até o momento:
 
 - NextJs
 - Clerk
