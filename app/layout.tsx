@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { ptBR } from "@clerk/localizations";
+import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin"],
 });
 
@@ -23,12 +21,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider
+      localization={ptBR}
+      signInUrl="/learn"
+      signUpUrl="/learn"
+      signInFallbackRedirectUrl="/learn"
+      signUpFallbackRedirectUrl="/learn"
+      afterSignOutUrl="/"
+      appearance={{
+        layout: {
+          socialButtonsPlacement: "bottom",
+        },
+        variables: {
+          colorPrimary: "#16a34a",
+        },
+      }}
+    >
+      <html lang="pt-BR">
+        <body className={`${nunito.variable} ${nunito.variable} antialiased`}>
+          <Toaster />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
