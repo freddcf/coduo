@@ -23,17 +23,11 @@ export const Card = ({ id, title, imageSrc, disabled, active, onClick }: Props) 
       <div className="min-h-[24px] w-full flex items-center justify-end">
         {active && (
           <div className="rounded-md bg-indigo-500 flex items-center justify-center p-1.5">
-            <Check className="text-white stroke-[4] h-4 w-4" />
+            <Check className="text-white stroke-4 h-4 w-4" />
           </div>
         )}
       </div>
-      <Image
-        src={imageSrc}
-        alt={title}
-        height={70}
-        width={93.33}
-        className="rounded-lg drop-shadow-md object-cover"
-      />
+      <Image src={imageSrc} alt={title} height={70} width={93.33} className="rounded-lg" />
       <p className="text-neutral-700 text-center font-bold mt-3">{title}</p>
     </div>
   );

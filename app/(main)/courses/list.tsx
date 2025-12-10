@@ -12,6 +12,13 @@ type Props = {
   activeCourseId?: typeof userProgress.$inferSelect.activeCourseId;
 };
 
+const isNextRedirectError = (e: any) => {
+  if (typeof e === "object" && e !== null && "message" in e) {
+    return String(e.message).startsWith("NEXT_REDIRECT");
+  }
+  return false;
+};
+
 export const List = ({ courses, activeCourseId }: Props) => {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -23,12 +30,15 @@ export const List = ({ courses, activeCourseId }: Props) => {
     }
 
     startTransition(() => {
-      upsertUserProgress(id).catch(() => toast.error("Algo deu errado."));
+      upsertUserProgress(id).catch((e) => {
+        if (isNextRedirectError(e)) return;
+        toast.error("Algo deu errado.");
+      });
     });
   };
 
   return (
-    <div className="pt-6 grid grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(210px,fr))] gap-4">
+    <div className="pt-6 grid grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-4">
       {courses.map((course) => (
         <Card
           key={course.id}
