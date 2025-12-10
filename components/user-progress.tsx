@@ -2,9 +2,10 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { InfinityIcon } from "lucide-react";
+import { courses } from "@/db/schema";
 
 type Props = {
-  activeCourse: { imageSrc: string; title: string }; // TODO: Replace with database format
+  activeCourse: typeof courses.$inferSelect; // TODO: Replace with database format
   hearts: number;
   points: number;
   hasActiveSubscription: boolean;
@@ -25,8 +26,8 @@ export const UserProgress = ({ activeCourse, points, hearts, hasActiveSubscripti
         </Button>
       </Link>
       <Link href="/shop">
-        <Button variant="ghost" className="text-orange-500">
-          <Image src="/images/points.svg" height={28} width={28} alt="Pontos" className="mr-2" />
+        <Button variant="ghost" className="text-amber-900">
+          <Image src="/images/coffee.svg" height={28} width={28} alt="Pontos" className="mr-2" />
           {points}
         </Button>
       </Link>
@@ -35,7 +36,7 @@ export const UserProgress = ({ activeCourse, points, hearts, hasActiveSubscripti
           <Image src="/images/heart.svg" height={28} width={28} alt="Vidas" className="mr-2" />
 
           <span>
-            {hasActiveSubscription ? <InfinityIcon className="w-6! h-6! stroke-[3]" /> : hearts}
+            {hasActiveSubscription ? <InfinityIcon className="w-6! h-6! stroke-3" /> : hearts}
           </span>
         </Button>
       </Link>

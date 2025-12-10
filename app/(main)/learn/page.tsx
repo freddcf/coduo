@@ -2,14 +2,16 @@ import { FeedWrapper } from "@/components/feed-wrapper";
 import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Header } from "./header";
 import { UserProgress } from "@/components/user-progress";
-import { getUserProgress } from "@/db/queries";
+import { getUnits, getUserProgress } from "@/db/queries";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import Loading from "./loading";
 
 const LearnPage = async () => {
   const userProgressPromise = getUserProgress();
-  const [userProgress] = await Promise.all([userProgressPromise]);
+  const unitsData = getUnits();
+
+  const [userProgress, units] = await Promise.all([userProgressPromise, unitsData]);
 
   if (!userProgress || !userProgress.activeCourse) {
     redirect("/courses");
@@ -19,14 +21,19 @@ const LearnPage = async () => {
     <div className="flex flex-row-reverse gap[48px] px-6">
       <StickyWrapper>
         <UserProgress
-          activeCourse={{ title: "Golang", imageSrc: "/images/golang.svg" }}
-          hearts={5}
-          points={100}
-          hasActiveSubscription={true}
+          activeCourse={userProgress.activeCourse}
+          hearts={userProgress.hearts}
+          points={userProgress.points}
+          hasActiveSubscription={false}
         />
       </StickyWrapper>
       <FeedWrapper>
-        <Header title="Golang" />
+        <Header title={userProgress.activeCourse.title} />
+        {units.map((unit) => (
+          <div key={unit.id} className="mb-10">
+            {JSON.stringify(unit)}
+          </div>
+        ))}
       </FeedWrapper>
     </div>
   );
