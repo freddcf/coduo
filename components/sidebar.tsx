@@ -18,9 +18,9 @@ export const Sidebar = ({ className }: Props) => {
       )}
     >
       <Link href="/learn">
-        <div className="pt-8 pl-4 pb-7 flex items-center gap-x-1">
+        <div className="pt-8 pl-4 pb-7 flex items-center gap-x-0">
           <Image src="/images/cadu/cadu-core.png" alt="Logo" height={40} width={40} />
-          <h1 className="text-2xl font-bold text-indigo-600 tracking-wide">Coduo</h1>
+          <h1 className="text-3xl font-bold text-indigo-600 tracking-wide">coduo</h1>
         </div>
       </Link>
       <div className="flex flex-col gap-y-2 flex-1">
