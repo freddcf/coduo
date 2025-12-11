@@ -50,7 +50,7 @@ const main = async () => {
                 title: "Unidade 1",
                 description: "Aprenda o básico de Javascript",
                 order: 1
-            }
+            },
         ])
 
         await db.insert(schema.lessons).values([
@@ -60,6 +60,50 @@ const main = async () => {
                 order: 1,
                 title: "Variable declaration"
             },
+            {
+                id: 2,
+                unitId: 1,
+                order: 2,
+                title: "Const declaration"
+            },
+            {
+                id: 3,
+                unitId: 1,
+                order: 3,
+                title: "Const declaration"
+            },
+            {
+                id: 4,
+                unitId: 1,
+                order: 4,
+                title: "Const declaration"
+            },
+            {
+                id: 5,
+                unitId: 1,
+                order: 5,
+                title: "Const declaration"
+            },
+            {
+                id: 6,
+                unitId: 1,
+                order: 6,
+                title: "Const declaration"
+            },
+            {
+                id: 7,
+                unitId: 1,
+                order: 7,
+                title: "Const declaration"
+            },
+            {
+                id: 8,
+                unitId: 1,
+                order: 8,
+                title: "Const declaration"
+            },
+
+
         ])
 
         await db.insert(schema.challenges).values([
