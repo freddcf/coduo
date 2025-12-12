@@ -98,7 +98,7 @@ export const LessonButton = ({ id, index, totalCount, locked, current, percentag
           >
             <Icon
               className={cn(
-                "h-7! w-7!",
+                "h-10! w-10!",
                 locked
                   ? "fill-neutral-400 text-neutral-400 stroke-neutral-400"
                   : "fill-primary-foreground text-primary-foreground",
