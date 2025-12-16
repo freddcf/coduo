@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ptBR } from "@clerk/localizations";
 import { Toaster } from "@/components/ui/sonner";
+import { ExitModal } from "@/components/modals/exit-modal";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -40,6 +41,7 @@ export default function RootLayout({
       <html lang="pt-BR">
         <body className={`${nunito.variable} ${nunito.variable} antialiased`}>
           <Toaster />
+          <ExitModal />
           {children}
         </body>
       </html>
