@@ -37,7 +37,6 @@ export const LessonButton = ({ id, index, totalCount, locked, current, percentag
   const calculatedPosition = finalIndentation * stepSize; // Aplica o override de fechamento central
 
   const rightPosition = isLastLesson ? 0 : calculatedPosition;
-  console.log(rightPosition);
 
   const isFirst = index === 0;
   const isLast = index === totalCount;
