@@ -51,6 +51,13 @@ const main = async () => {
                 description: "Aprenda o básico de Javascript",
                 order: 1
             },
+            {
+                id: 2,
+                courseId: 1,
+                title: "Unidade 2",
+                description: "Aprenda o básico 2 de Javascript",
+                order: 2
+            },
         ])
 
         await db.insert(schema.lessons).values([
@@ -102,8 +109,30 @@ const main = async () => {
                 order: 8,
                 title: "Const declaration"
             },
-
-
+            {
+                id: 9,
+                unitId: 2,
+                order: 2,
+                title: "Const declaration"
+            },
+            {
+                id: 10,
+                unitId: 2,
+                order: 3,
+                title: "Const declaration"
+            },
+            {
+                id: 11,
+                unitId: 2,
+                order: 4,
+                title: "Const declaration"
+            },
+            {
+                id: 12,
+                unitId: 2,
+                order: 5,
+                title: "Const declaration"
+            },
         ])
 
         await db.insert(schema.challenges).values([
@@ -112,6 +141,13 @@ const main = async () => {
                 lessonId: 1,
                 type: "SELECT",
                 order: 1,
+                question: "Qual dessas é a forma de declarar variáveis globais no Javacript?",
+            },
+            {
+                id: 2,
+                lessonId: 8,
+                type: "SELECT",
+                order: 2,
                 question: "Qual dessas é a forma de declarar variáveis globais no Javacript?",
             },
         ])
