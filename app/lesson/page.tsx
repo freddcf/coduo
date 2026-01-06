@@ -18,7 +18,7 @@ const LessonPage = async () => {
     100;
 
   return (
-    <div>
+    <div className="flex flex-col h-full w-full">
       <Quiz
         initialLessonId={lesson.id}
         initialLessonChallenges={lesson.challenges}
